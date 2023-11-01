@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Recarga {
@@ -11,5 +12,11 @@ public class Recarga {
 
     public Date getData(){
         return this.data;
+    }
+
+    public String toString(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = simpleDateFormat.format(data);
+        return "Data: " + dataFormatada + ", Valor: R$" + valor;
     }
 }
