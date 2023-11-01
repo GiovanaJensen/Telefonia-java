@@ -16,6 +16,6 @@ public abstract class Assinante {
     }
 
     public String toString(){
-        return "";
+        return "CPF: " + cpf + ", Nome: " + nome + ", Numero: " + numero + ", Número de chamadas: " + numChamadas + ", Chamadas: " + chamadas;
     }
 }
