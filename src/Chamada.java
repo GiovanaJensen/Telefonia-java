@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Chamada {
@@ -18,7 +19,9 @@ public class Chamada {
     }
 
     public String toString(){
-        return "";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = simpleDateFormat.format(data);
+        return "Data: " + dataFormatada + ", Duração: " + duracao + " minutos";
     }
 
 }
