@@ -56,6 +56,16 @@ public class Telefonia {
         }
     }
 
+    public void listarAssinantes() {
+        for(int i = 0; i < prePagos.length; i++) {
+            System.out.println("CPF: " + prePagos[i].getCpf() + ", Nome: " + prePagos[i].getNome() + ", Numero: " + prePagos[i].getNumero());
+        }
+
+        for(int i = 0; i < posPagos.length; i++) {
+            System.out.println("CPF: " + posPagos[i].getCpf() + ", Nome: " + posPagos[i].getNome() + ", Numero: " + posPagos[i].getNumero());
+        }
+    }
+
     public static void main(String[] args) {
         
     }

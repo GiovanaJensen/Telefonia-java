@@ -24,7 +24,7 @@ public class App {
                     telefonia.cadastrarAssinante();
                     break;
                 case 2:
-                    // telefonia.listarAssinantes();
+                    telefonia.listarAssinantes();
                     break;
                 // other cases
                 default:
