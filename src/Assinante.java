@@ -15,6 +15,14 @@ public abstract class Assinante {
         return this.cpf;
     }
 
+    public String getNome(){
+        return this.nome;
+    }
+
+    public long getNumero(){
+        return this.numero;
+    }
+
     public String toString(){
         return "CPF: " + cpf + ", Nome: " + nome + ", Numero: " + numero + ", Número de chamadas: " + numChamadas + ", Chamadas: " + chamadas;
     }
