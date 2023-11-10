@@ -3,7 +3,7 @@ public abstract class Assinante {
     private String nome;
     private int numero;
     protected int numChamadas;
-    protected Chamada chamadas[];
+    protected Chamada chamadas[] = new Chamada[5];
 
     public Assinante(long cpf, String nome, int numero){
         this.cpf = cpf;
