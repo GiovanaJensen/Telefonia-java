@@ -10,7 +10,16 @@ public class PrePago extends Assinante{
     }
 
     public void recarregar(Date data, float valor){
-
+        if (numRecargas < recargas.length){
+            Recarga novaRecarga = new Recarga(data, valor);
+            recargas[numRecargas] = novaRecarga;
+            creditos = creditos + valor;
+            numRecargas++;
+ 
+            System.out.println("Recarga de R$" +  valor + " efetuada com sucesso! \n Agora voce possui R$" + creditos + " de creditos");
+        }else{
+            System.out.println("Voce nao tem os requisitos para recarregar");
+        }
     }
 
     public void fazerChamada(Date data, int duracao){
