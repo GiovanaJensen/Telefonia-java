@@ -10,11 +10,11 @@ public abstract class Assinante {
         this.nome = nome;
         this.numero = numero;
     }
-
+     
     public long getCpf(){
         return this.cpf;
     }
-
+    //Adição dos metodos getNome e getNumero necessarios ao void listarAssinantes() da classe Telefonia
     public String getNome(){
         return this.nome;
     }

@@ -60,10 +60,10 @@ public class Telefonia {
         }
         
     }
-
+    //listagem baseado nos tipos de assinaturas
     public void listarAssinantes() {
         for (int i = 0; i < prePagos.length; i++) {
-            if (prePagos[i] != null) {
+            if (prePagos[i] != null) { //adicao da Giovana, verificacao de consistencia
                 System.out.println("CPF: " + prePagos[i].getCpf() + ", Nome: " + prePagos[i].getNome() + ", Numero: " + prePagos[i].getNumero());
             }
         }
@@ -74,7 +74,17 @@ public class Telefonia {
             }
         }
     }
-    
+    //implementacao 
+    public void fazerChamada(int opcao, long cpf) {
+        if (localizarPrePago(cpf) != null) {
+            System.out.println(localizarPrePago(cpf));
+        }else if (localizarPosPago(cpf) != null) {
+            System.out.println(localizarPosPago(cpf));
+        }else {
+            System.out.println("Os dados informados nao correspondem a nenhum assinante, por favor verifique se as informações estao corretas");
+        }
+        
+    }
 
     public static void main(String[] args) {
         
