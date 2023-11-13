@@ -14,6 +14,10 @@ public class Recarga {
         return this.data;
     }
 
+    public Float getValor(){
+        return this.valor;
+    }
+
     public String toString(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String dataFormatada = simpleDateFormat.format(data);
