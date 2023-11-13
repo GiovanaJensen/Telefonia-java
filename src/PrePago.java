@@ -3,7 +3,7 @@ import java.util.Date;
 public class PrePago extends Assinante{
     private float creditos=0;
     private int numRecargas=0;
-    private Recarga recargas[] = new Recarga[5];
+    private Recarga recargas[] = new Recarga[2];
 
     public PrePago(long cpf, String nome, int numero){
         super(cpf,nome,numero);

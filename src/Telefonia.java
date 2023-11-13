@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Telefonia {
     private int numPrePagos = 0;
     private int numPosPagos = 0;
-    private PrePago prePagos[] = new PrePago[5];
-    private PosPago posPagos[] = new PosPago[5];
+    private PrePago prePagos[] = new PrePago[2];
+    private PosPago posPagos[] = new PosPago[2];
 
     public Telefonia() {}
 
@@ -27,44 +27,54 @@ public class Telefonia {
         System.out.println("Digite o n° de telefone: ");
         numero = entrada.nextInt();
 
-        switch(opcao) {
+        switch (opcao) {
             case 1:
                 PrePago novoPrePago = new PrePago(cpf, nome, numero);
-                if (numPrePagos < prePagos.length) {
-                    prePagos[numPrePagos++] = novoPrePago;
-                    System.out.println("Pré-Pago criado com sucesso!");
-                } else {
-                    System.out.println("Limite de Pré-Pagos atingido!");
+                for (int i = 0; i < prePagos.length; i++) {
+                    if (prePagos[i] == null) {
+                        prePagos[i] = novoPrePago;
+                        System.out.println("Pré-Pago criado com sucesso!");
+                        numPrePagos++;
+                        System.out.println(numPrePagos);
+                        break;
+                    }
                 }
-                break;
-
+                break; 
+        
             case 2:
                 System.out.println("Digite a assinatura: ");
                 assinatura = entrada.nextFloat();
                 PosPago novoPosPago = new PosPago(cpf, nome, numero, assinatura);
                 if (numPosPagos < posPagos.length) {
-                    posPagos[numPosPagos++] = novoPosPago;
+                    posPagos[numPosPagos] = novoPosPago;
+                    numPosPagos++;
                     System.out.println("Pós-Pago criado com sucesso!");
                 } else {
                     System.out.println("Limite de Pós-Pagos atingido!");
                 }
-                break;
-
+                break; 
+        
             default:
                 System.out.println("Insira uma opção válida!");
                 break;
         }
+        
     }
 
     public void listarAssinantes() {
-        for(int i = 0; i < prePagos.length; i++) {
-            System.out.println("CPF: " + prePagos[i].getCpf() + ", Nome: " + prePagos[i].getNome() + ", Numero: " + prePagos[i].getNumero());
+        for (int i = 0; i < prePagos.length; i++) {
+            if (prePagos[i] != null) {
+                System.out.println("CPF: " + prePagos[i].getCpf() + ", Nome: " + prePagos[i].getNome() + ", Numero: " + prePagos[i].getNumero());
+            }
         }
-
-        for(int i = 0; i < posPagos.length; i++) {
-            System.out.println("CPF: " + posPagos[i].getCpf() + ", Nome: " + posPagos[i].getNome() + ", Numero: " + posPagos[i].getNumero());
+    
+        for (int i = 0; i < posPagos.length; i++) {
+            if (posPagos[i] != null) {
+                System.out.println("CPF: " + posPagos[i].getCpf() + ", Nome: " + posPagos[i].getNome() + ", Numero: " + posPagos[i].getNumero());
+            }
         }
     }
+    
 
     public static void main(String[] args) {
         

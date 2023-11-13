@@ -27,9 +27,8 @@ public class App {
                     telefonia.listarAssinantes();
                     break;
                 case 8:
-                    System.exit();
+                    System.exit(0);
                     break;
-                // other cases
                 default:
                     System.out.println("Insira uma opção válida!");
                     break;
