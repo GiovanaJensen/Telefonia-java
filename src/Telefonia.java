@@ -94,13 +94,13 @@ public class Telefonia {
     }
 
     public void imprimirFatura(int mes){
-        for(int i=0; prePagos.length; i++){
+        for(int i=0; i<prePagos.length; i++){
             if(prePagos[i] != null){
                 prePagos[i].imprimirFatura(mes);
             }
         }
 
-        for(int i=0; posPagos.length; i++){
+        for(int i=0; i<posPagos.length; i++){
             if(posPagos[i] != null){
                 posPagos[i].imprimirFatura(mes);
             }
