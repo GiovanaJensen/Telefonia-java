@@ -83,7 +83,18 @@ public class Telefonia {
         }else {
             System.out.println("Os dados informados nao correspondem a nenhum assinante, por favor verifique se as informações estao corretas");
         }
-        
+    }
+
+    //implementação do metodo de recargas(Enviar)
+    public void fazerRecarga(long cpf){
+        if (localizarPrePago(cpf) != null) {
+            System.out.println("Achou, agr só implementar!");
+            //implementar lógica
+        }else if (localizarPosPago(cpf) != null) {
+            System.out.println("O cpf informado nao corresponde a uma assinatura pre paga");
+        }else {
+            System.out.println("Os dados informados nao correspondem a nenhuma assinatura, por favor verifique se as informações estao corretas");
+        } 
     }
 
     public static void main(String[] args) {
