@@ -60,10 +60,10 @@ public class Telefonia {
         }
         
     }
-    //listagem baseado nos tipos de assinaturas
+
     public void listarAssinantes() {
         for (int i = 0; i < prePagos.length; i++) {
-            if (prePagos[i] != null) { //adicao da Giovana, verificacao de consistencia
+            if (prePagos[i] != null) {
                 System.out.println("CPF: " + prePagos[i].getCpf() + ", Nome: " + prePagos[i].getNome() + ", Numero: " + prePagos[i].getNumero());
             }
         }
@@ -74,6 +74,7 @@ public class Telefonia {
             }
         }
     }
+
     public PrePago localizarPrePago(long cpf){ 
         for(int i=0; i<prePagos.length; i++){ 
             if(cpf == prePagos[i].getCpf()){ 
@@ -90,15 +91,21 @@ public class Telefonia {
             } 
         } 
         return null; 
-    //implementacao 
-    public void fazerChamada(int opcao, long cpf) {
-        if (localizarPrePago(cpf) != null) {
-            System.out.println(localizarPrePago(cpf));
-        }else if (localizarPosPago(cpf) != null) {
-            System.out.println(localizarPosPago(cpf));
-        }else {
-            System.out.println("Os dados informados nao correspondem a nenhum assinante, por favor verifique se as informações estao corretas");
+    }
+
+    public void imprimirFatura(int mes){
+        for(int i=0; prePagos.length; i++){
+            if(prePagos[i] != null){
+                prePagos[i].imprimirFatura(mes);
+            }
         }
+
+        for(int i=0; posPagos.length; i++){
+            if(posPagos[i] != null){
+                posPagos[i].imprimirFatura(mes);
+            }
+        }
+        
     }
 
     public static void main(String[] args) {
