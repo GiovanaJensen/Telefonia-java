@@ -26,6 +26,13 @@ public class App {
                 case 2:
                     telefonia.listarAssinantes();
                     break;
+                case 3:
+                    System.out.println("Qual o tipo de assinatura: \n1-Pré-Pago\n2-Pós-Pago");
+                    int opcaoAssinante = entrada.nextInt();
+                    System.out.println("Informe o cpf do titular: ");
+                    long cpf = entrada.nextLong();
+                    telefonia.fazerChamada(opcaoAssinante, cpf);
+                    break;
                 case 8:
                     System.exit(0);
                     break;
