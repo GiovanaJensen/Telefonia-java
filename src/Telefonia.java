@@ -84,6 +84,15 @@ public class Telefonia {
         return null; 
     }
 
+    public PosPago localizarPosPago(long cpf){ 
+        for(int i=0; i<posPagos.length; i++){ 
+            if(cpf == posPagos[i].getCpf()){ 
+                return posPagos[i]; 
+            } 
+        } 
+        return null; 
+    }
+
     public static void main(String[] args) {
         
     }
