@@ -74,6 +74,22 @@ public class Telefonia {
             }
         }
     }
+    public PrePago localizarPrePago(long cpf){ 
+        for(int i=0; i<prePagos.length; i++){ 
+            if(cpf == prePagos[i].getCpf()){ 
+                return prePagos[i]; 
+            } 
+        } 
+        return null; 
+    }
+
+    public PosPago localizarPosPago(long cpf){ 
+        for(int i=0; i<posPagos.length; i++){ 
+            if(cpf == posPagos[i].getCpf()){ 
+                return posPagos[i]; 
+            } 
+        } 
+        return null; 
     //implementacao 
     public void fazerChamada(int opcao, long cpf) {
         if (localizarPrePago(cpf) != null) {
@@ -83,7 +99,6 @@ public class Telefonia {
         }else {
             System.out.println("Os dados informados nao correspondem a nenhum assinante, por favor verifique se as informações estao corretas");
         }
-        
     }
 
     public static void main(String[] args) {

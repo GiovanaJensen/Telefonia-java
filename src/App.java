@@ -33,6 +33,19 @@ public class App {
                     long cpf = entrada.nextLong();
                     telefonia.fazerChamada(opcaoAssinante, cpf);
                     break;
+                case 5: 
+                    System.out.println("Digite o mes que deseja ver as faturas: "); 
+                    int mes = entrada.nextInt(); 
+                    telefonia.imprimirFatura(mes); 
+                    break; 
+                case 6: 
+                    System.out.println("Digite seu cpf: "); 
+                    long cpf = entrada.nextLong(); 
+                    telefonia.localizarPrePago(cpf); 
+                    break; 
+                case 7: 
+                    telefonia.localizarPosPago(cpf); 
+                    break;
                 case 8:
                     System.exit(0);
                     break;
