@@ -74,7 +74,15 @@ public class Telefonia {
             }
         }
     }
-    
+
+    public PrePago localizarPrePago(long cpf){ 
+        for(int i=0; i<prePagos.length; i++){ 
+            if(cpf == prePagos[i].getCpf()){ 
+                return prePagos[i]; 
+            } 
+        } 
+        return null; 
+    }
 
     public static void main(String[] args) {
         
