@@ -129,7 +129,6 @@ public class Telefonia {
         }
         System.out.println("Informe a duração:");
         int duracao = entrada.nextInt();
-        entrada.close();
     
         PrePago prePago = localizarPrePago(cpf);
         PosPago posPago = localizarPosPago(cpf);
@@ -143,6 +142,31 @@ public class Telefonia {
         }
     }
     
+    //validação dos dados informados e invocação do metodo recarregar, exclusivo para o tipo de assinatura pré paga
+    public void fazerRecarga() {
+        Scanner entrada = new Scanner(System.in);
+        Date data = null;
+        System.out.println("Informe o cpf do titular: ");
+        long cpf = entrada.nextLong();
+        System.out.println("Informe a data: ");
+        String dataString = entrada.next();
+        SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            data = formatoData.parse(dataString);
+        } catch (ParseException e) {
+            System.out.println("Formato inválido. Por favor, insira o formato dd/MM/yyyy.");
+        }
+        System.out.println("Informe o valor:");
+        float valor = entrada.nextFloat();
+    
+        PrePago prePago = localizarPrePago(cpf);
+
+        if (prePago != null) {
+            prePago.recarregar(data, valor);
+        } else {
+            System.out.println("Os dados informados não correspondem a nenhum assinante pré pago, por favor, verifique se as informações estão corretas");
+        }
+    }
 
     public static void main(String[] args) {
         

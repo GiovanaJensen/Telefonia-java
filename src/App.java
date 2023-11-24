@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -17,10 +18,16 @@ public class App {
             System.out.println("7- Localizar Pós-Pago");
             System.out.println("8- Sair do Programa");
 
-            opcao = entrada.nextInt();
+            try {
+                opcao = entrada.nextInt();
+                entrada.nextLine(); 
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                entrada.nextLine(); 
+                continue; 
+            }
 
-            System.out.println("Informe o cpf do titular: ");
-            long cpf = entrada.nextLong();
+            long cpf = 0;
 
             switch (opcao) {
                 case 1:
@@ -32,13 +39,18 @@ public class App {
                 case 3:
                     telefonia.fazerChamada();
                     break;
+                case 4:
+                    telefonia.fazerRecarga();
+                    break;
                 case 5: 
                     System.out.println("Digite o mes que deseja ver as faturas: "); 
                     int mes = entrada.nextInt(); 
+                    entrada.nextLine();
                     telefonia.imprimirFatura(mes); 
                     break; 
                 case 6: 
-                    System.out.println("Digite seu cpf: ");  
+                    System.out.println("Digite seu cpf: "); 
+                    cpf = entrada.nextLong(); 
                     PrePago prePagoEncontrado = telefonia.localizarPrePago(cpf);
                     if (prePagoEncontrado != null) {
                         System.out.println("Assinante Pré-Pago encontrado: " + prePagoEncontrado.getNome());
@@ -47,6 +59,8 @@ public class App {
                     }  
                     break; 
                 case 7: 
+                    System.out.println("Digite seu cpf: "); 
+                    cpf = entrada.nextLong(); 
                     PosPago posPagoEncontrado = telefonia.localizarPosPago(cpf);
                     if (posPagoEncontrado != null) {
                         System.out.println("Assinante Pós-Pago encontrado: " + posPagoEncontrado.getNome());
@@ -55,6 +69,7 @@ public class App {
                     } 
                     break;
                 case 8:
+                    entrada.close();
                     System.exit(0);
                     break;
                 default:
