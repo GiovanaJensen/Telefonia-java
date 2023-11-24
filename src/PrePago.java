@@ -53,7 +53,7 @@ public class PrePago extends Assinante{
                 float valorPorMinuto = 1.45F;
                 float valorDaChamada = chamada.getDuracao() * valorPorMinuto;
                 valorTotalChamada += valorDaChamada;
-                creditosUsados -= valorDaChamada;
+                creditosUsados += valorDaChamada;
                 System.out.println(chamada.toString() + ", Valor: " + valorDaChamada);
             }
         }
