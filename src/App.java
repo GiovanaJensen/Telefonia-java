@@ -30,9 +30,7 @@ public class App {
                     telefonia.listarAssinantes();
                     break;
                 case 3:
-                    System.out.println("Qual o tipo de assinatura: \n1-Pré-Pago\n2-Pós-Pago");
-                    int opcaoAssinante = entrada.nextInt();
-                    telefonia.fazerChamada(opcaoAssinante, cpf);
+                    telefonia.fazerChamada();
                     break;
                 case 5: 
                     System.out.println("Digite o mes que deseja ver as faturas: "); 
