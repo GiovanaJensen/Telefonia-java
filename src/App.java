@@ -19,6 +19,9 @@ public class App {
 
             opcao = entrada.nextInt();
 
+            System.out.println("Informe o cpf do titular: ");
+            long cpf = entrada.nextLong();
+
             switch (opcao) {
                 case 1:
                     telefonia.cadastrarAssinante();
@@ -27,7 +30,9 @@ public class App {
                     telefonia.listarAssinantes();
                     break;
                 case 3:
-                    telefonia.fazerChamada();
+                    System.out.println("Qual o tipo de assinatura: \n1-Pré-Pago\n2-Pós-Pago");
+                    int opcaoAssinante = entrada.nextInt();
+                    telefonia.fazerChamada(opcaoAssinante, cpf);
                     break;
                 case 5: 
                     System.out.println("Digite o mes que deseja ver as faturas: "); 
@@ -35,13 +40,10 @@ public class App {
                     telefonia.imprimirFatura(mes); 
                     break; 
                 case 6: 
-                    System.out.println("Digite seu cpf: "); 
-                    long cpf = entrada.nextLong(); 
+                    System.out.println("Digite seu cpf: ");  
                     telefonia.localizarPrePago(cpf); 
                     break; 
                 case 7: 
-                    System.out.println("Digite seu cpf: "); 
-                    cpf = entrada.nextLong(); 
                     telefonia.localizarPosPago(cpf); 
                     break;
                 case 8:

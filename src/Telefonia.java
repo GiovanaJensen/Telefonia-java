@@ -1,6 +1,3 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Telefonia {
@@ -80,7 +77,7 @@ public class Telefonia {
 
     public PrePago localizarPrePago(long cpf){ 
         for(int i=0; i<prePagos.length; i++){ 
-            if(prePagos[i] != null && cpf == prePagos[i].getCpf()){ 
+            if(cpf == prePagos[i].getCpf()){ 
                 return prePagos[i]; 
             } 
         } 
@@ -89,7 +86,7 @@ public class Telefonia {
 
     public PosPago localizarPosPago(long cpf){ 
         for(int i=0; i<posPagos.length; i++){ 
-            if(posPagos[i] != null && cpf == posPagos[i].getCpf()){ 
+            if(cpf == posPagos[i].getCpf()){ 
                 return posPagos[i]; 
             } 
         } 
@@ -110,39 +107,6 @@ public class Telefonia {
         }
         
     }
-
-    //validação dos dados informados e busca nos metodos de localização, realizando a chamada do metodo de fazerChamada em suas respectivas classes
-    public void fazerChamada() {
-        Scanner entrada = new Scanner(System.in);
-        Date data = null;
-        System.out.println("Informe o cpf do titular: ");
-        long cpf = entrada.nextLong();
-        System.out.println("Qual o tipo de assinatura: \n1-Pré-Pago\n2-Pós-Pago");
-        int opcaoAssinante = entrada.nextInt();
-        System.out.println("Informe a data: ");
-        String dataString = entrada.next();
-        SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            data = formatoData.parse(dataString);
-        } catch (ParseException e) {
-            System.out.println("Formato inválido. Por favor, insira o formato dd/MM/yyyy.");
-        }
-        System.out.println("Informe a duração:");
-        int duracao = entrada.nextInt();
-        entrada.close();
-    
-        PrePago prePago = localizarPrePago(cpf);
-        PosPago posPago = localizarPosPago(cpf);
-    
-        if (prePago != null) {
-            prePago.fazerChamada(data, duracao);
-        } else if (posPago != null) {
-            posPago.fazerChamada(data, duracao);
-        } else {
-            System.out.println("Os dados informados não correspondem a nenhum assinante, por favor, verifique se as informações estão corretas");
-        }
-    }
-    
 
     public static void main(String[] args) {
         
