@@ -39,10 +39,20 @@ public class App {
                     break; 
                 case 6: 
                     System.out.println("Digite seu cpf: ");  
-                    telefonia.localizarPrePago(cpf); 
+                    PrePago prePagoEncontrado = telefonia.localizarPrePago(cpf);
+                    if (prePagoEncontrado != null) {
+                        System.out.println("Assinante Pré-Pago encontrado: " + prePagoEncontrado.getNome());
+                    } else {
+                        System.out.println("Nenhum Assinante Pré-Pago encontrado com o CPF informado.");
+                    }  
                     break; 
                 case 7: 
-                    telefonia.localizarPosPago(cpf); 
+                    PosPago posPagoEncontrado = telefonia.localizarPosPago(cpf);
+                    if (posPagoEncontrado != null) {
+                        System.out.println("Assinante Pós-Pago encontrado: " + posPagoEncontrado.getNome());
+                    } else {
+                        System.out.println("Nenhum Assinante Pós-Pago encontrado com o CPF informado.");
+                    } 
                     break;
                 case 8:
                     System.exit(0);

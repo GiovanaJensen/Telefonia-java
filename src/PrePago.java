@@ -49,7 +49,7 @@ public class PrePago extends Assinante{
         System.out.println("Nome: " + super.getNome() + ", Cpf: " + super.getCpf() + ",Numero: " + super.getNumero() );
         //data, duracao, valor das chamadas feitas no mes
         for(Chamada chamada : chamadas){
-            if(isMesIgual(chamada.getData(), mes)){
+            if(chamada != null && isMesIgual(chamada.getData(), mes)){
                 float valorPorMinuto = 1.45F;
                 float valorDaChamada = chamada.getDuracao() * valorPorMinuto;
                 valorTotalChamada += valorDaChamada;
@@ -59,7 +59,7 @@ public class PrePago extends Assinante{
         }
         //data e valor das recargas feitas no mes
         for(Recarga recarga : recargas){
-            if(isMesIgual(recarga.getData(), mes)){
+            if(recarga != null && isMesIgual(recarga.getData(), mes)){
                 valorTotalRecarga += recarga.getValor();
                 System.out.println(recarga.toString());
             }
