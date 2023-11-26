@@ -30,7 +30,7 @@ public class PosPago extends Assinante{
         System.out.println("Nome: " + super.getNome() + ", Cpf: " + super.getCpf() + ",Numero: " + super.getNumero() );
         //data, duracao, valor das chamadas feitas no mes
         for(Chamada chamada : chamadas){
-            if(isMesIgual(chamada.getData(), mes)){
+            if(chamada != null && isMesIgual(chamada.getData(), mes)){
                 float valorPorMinuto = 1.05F;
                 float valorDaChamada = chamada.getDuracao() * valorPorMinuto;
                 valorTotalChamada += valorDaChamada;
@@ -38,7 +38,7 @@ public class PosPago extends Assinante{
             }
         }
         //valor total das ligacoes e recargas do mes
-        System.out.println("Valor Total da Chamada: " + valorTotalChamada + ", Valor Total da Recarga: " + valorTotalRecarga);
+        System.out.println("Valor Total da Chamada: " + valorTotalChamada);
     }
  
     private boolean isMesIgual(Date data, int mes){
